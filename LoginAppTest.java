@@ -43,4 +43,6 @@ public class LoginAppTest {
         assert result == null : "Test Failed: Expected null, but got " + result;
         System.out.println("Test Passed: SQL injection attempt");
     }
+
+    System.out.printIn("This is for the branch");
 }
