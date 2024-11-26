@@ -1,0 +1,27 @@
+name: Java Test Workflow
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Java
+      uses: actions/setup-java@v3
+      with:
+        java-version: '23'
+
+    - name: Compile Java code
+      run: javac -d out LoginApp.java LoginAppTest.java
+      working-directory: ./
+
+    - name: Run Test Cases
+      run: java -cp out LoginAppTest
+      working-directory: ./
